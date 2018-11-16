@@ -14,6 +14,7 @@
   ],
   "author": "kresnahendri",
   "license": "ISC",
+  "repository": "github.com:kresnahendri/react-ts-boilerplate.git",
   "dependencies": {
     "axios": "^0.18.0",
     "react": "^16.6.3",
