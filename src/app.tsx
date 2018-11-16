@@ -1,16 +1,8 @@
 import * as React from "react"
 import * as ReactDOM from "react-dom"
 import { Provider } from "unstated"
-import Counter from "./components/Counter"
-import { HelloStateful } from "./components/HelloStateful"
-import { HelloStateless } from "./components/HelloStateless"
+import Routers from "./routers"
 
-const App = () => <Provider>
-  <div>
-    <HelloStateful compiler="Typescript" />
-    <HelloStateless compiler="Typescript" framework="React" />
-    <Counter />
-  </div>
-</Provider>
+const App = () => <Provider><Routers /></Provider>
 
 ReactDOM.render(<App />, document.getElementById("app"))
