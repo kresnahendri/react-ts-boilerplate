@@ -1,4 +1,5 @@
 import * as React from "react"
+import Button from "../components/Button/Button"
 import Counter from "../components/Counter"
 import { HelloStateful } from "../components/HelloStateful"
 import { HelloStateless } from "../components/HelloStateless"
@@ -11,6 +12,7 @@ class Home extends React.Component {
         <HelloStateful compiler="Typescript" />
         <HelloStateless compiler="Typescript" framework="React" />
         <Counter />
+        <Button>Button</Button>
       </div>
     )
   }

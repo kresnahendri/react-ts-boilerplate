@@ -5,7 +5,7 @@
 - Fetch API: `axios`
 - Async handler: `rxjs@6`
 - State management: `unstead`
-- Styling: `post-css` or `styled-component` (WIP)
+- Styling: `styled-component`
 - Grid layout: `bootstrap-4-grid` (WIP)
-- Animation: `css` and/or `rxjs`
+- Animation: `css` and `rxjs`
 - Bundler: `webpack@4`
