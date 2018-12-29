@@ -1,14 +1,19 @@
 const path = require('path')
 const fs = require('fs')
+const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
   devtool: 'source-map',
-  entry: './src/app.tsx',
+  entry: {
+    app: ['./src/app.tsx', 'webpack-hot-middleware/client'],
+    vendor: ['react', 'react-dom']
+  },
   output: {
     path: __dirname + '/public',
-    filename: 'build/bundle.js'
+    filename: 'build/[name].bundle.js'
   },
+  devtool: 'source-map',
   devServer: {
     compress: true,
     port: 3000,
@@ -16,7 +21,8 @@ module.exports = {
   },
   module: {
     rules: [
-      { test: /\.tsx?$/, loader: 'ts-loader' }
+      { test: /\.tsx?$/, loader: 'ts-loader' },
+      { enforce: "pre", test: /\.js$/, loader: "source-map-loader" }
     ]
   },
   plugins: [
@@ -25,7 +31,8 @@ module.exports = {
       inject: true,
       sourceMap: true,
       chunksSortMode: 'dependency'
-    })
+    }),
+    new webpack.HotModuleReplacementPlugin()
   ],
   resolve: {
     modules: [path.resolve(__dirname, 'src'), 'node_modules'],

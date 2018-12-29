@@ -7,7 +7,7 @@ class Counter extends React.Component<{ counter: CounterState}, {}> {
     this.props.counter.fetchDummyData()
   }
 
-  public render() {
+  public render () {
     const { counter } = this.props
     return (
       <div>

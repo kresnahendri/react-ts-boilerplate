@@ -3,36 +3,36 @@ import { from } from "rxjs"
 import { map } from "rxjs/operators"
 import { Container } from "unstated"
 
-interface ICounterState {
-  count: number,
-  error: any,
+interface ICounterStateType {
+  count: number
+  error: any
   singleData: any
 }
 
-class CounterState extends Container<ICounterState> {
+class CounterState extends Container<ICounterStateType> {
   public state = {
     count: 0,
     error: {},
     singleData: {},
   }
 
-  public increase() {
+  public increase () {
     this.setState({ count: this.state.count + 1 })
   }
 
-  public decrease() {
+  public decrease () {
     this.setState({ count: this.state.count - 1 })
   }
 
-  public fetchDummyData() {
-    const url = "https://jsonplaceholder.typicode.com/todos/1"
+  public fetchDummyData () {
+    const url: string = "https://jsonplaceholder.typicode.com/todos/1"
 
     from(axios.get(url)).pipe(
-      map((res) => res.data),
+      map((res: any) => res.data),
     )
       .subscribe({
-        error: (error) => this.setState({ error: error.response }),
-        next: (data) => this.setState({ singleData: data }),
+        error: (error: any) => this.setState({ error: error.response }),
+        next: (data: object) => this.setState({ singleData: data }),
       })
   }
 }

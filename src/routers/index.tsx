@@ -14,8 +14,8 @@ const Routers = () => {
           </ul>
         </nav>
 
-        <Route exact path="/" component={Home} />
-        <Route exact path="/other" component={Other} />
+        <Route exact={true} path="/" component={Home} />
+        <Route exact={true} path="/other" component={Other} />
       </div>
     </Router>
   )

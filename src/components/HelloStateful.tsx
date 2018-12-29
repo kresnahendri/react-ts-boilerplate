@@ -10,7 +10,7 @@ class HelloStateful extends React.Component<IHelloStatefulProps, {}> {
     console.log("Component is mounted")
   }
 
-  public render() {
+  public render () {
     return (
       <div>Stateful: Hello from {this.props.compiler} and {this.props.framework}</div>
     )
