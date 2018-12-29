@@ -5,12 +5,12 @@ import { HelloStateful } from "../components/HelloStateful"
 import { HelloStateless } from "../components/HelloStateless"
 
 class Home extends React.Component {
-  public render () {
+  public render() {
     return (
       <div>
         <h1>Home pages</h1>
         <HelloStateful compiler="Typescript" />
-            <HelloStateless compiler="Typescript" framework="React" />
+        <HelloStateless compiler="Typescript" framework="React" />
         <Counter />
         <Button>Button</Button>
       </div>

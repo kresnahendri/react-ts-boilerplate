@@ -1,7 +1,7 @@
 import * as React from "react"
 
 class Other extends React.Component {
-  public render () {
+  public render() {
     return (
       <div>
         <h1>Other page</h1>

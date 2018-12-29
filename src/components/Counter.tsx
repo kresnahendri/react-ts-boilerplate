@@ -2,12 +2,16 @@ import * as React from "react"
 import { Subscribe } from "unstated"
 import { CounterState } from "../states/CounterState"
 
-class Counter extends React.Component<{ counter: CounterState}, {}> {
+class Counter extends React.Component<{ counter: CounterState }, {}> {
   public componentDidMount = () => {
     this.props.counter.fetchDummyData()
   }
 
-  public render () {
+  public onButtonClicked(clickType: string): void {
+    this.props.counter.decrease()
+  }
+
+  public render() {
     const { counter } = this.props
     return (
       <div>

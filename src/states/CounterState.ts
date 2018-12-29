@@ -16,15 +16,15 @@ class CounterState extends Container<ICounterStateType> {
     singleData: {},
   }
 
-  public increase () {
+  public increase() {
     this.setState({ count: this.state.count + 1 })
   }
 
-  public decrease () {
+  public decrease() {
     this.setState({ count: this.state.count - 1 })
   }
 
-  public fetchDummyData () {
+  public fetchDummyData() {
     const url: string = "https://jsonplaceholder.typicode.com/todos/1"
 
     from(axios.get(url)).pipe(
