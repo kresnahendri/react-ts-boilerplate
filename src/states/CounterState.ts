@@ -1,6 +1,6 @@
 import axios from "axios"
 import { from } from "rxjs"
-import { map } from "rxjs/operators"
+import { map, tap } from "rxjs/operators"
 import { Container } from "unstated"
 
 interface ICounterStateType {
@@ -27,9 +27,11 @@ class CounterState extends Container<ICounterStateType> {
   public fetchDummyData() {
     const url: string = "https://jsonplaceholder.typicode.com/todos/1"
 
-    from(axios.get(url)).pipe(
-      map((res: any) => res.data),
-    )
+    from(axios.get(url))
+      .pipe(
+        map((res: any) => res.data),
+        tap((data) => console.log("Data is", data))
+      )
       .subscribe({
         error: (error: any) => this.setState({ error: error.response }),
         next: (data: object) => this.setState({ singleData: data }),

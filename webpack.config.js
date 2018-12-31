@@ -6,7 +6,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 module.exports = {
   devtool: 'source-map',
   entry: {
-    app: ['./src/app.tsx', 'webpack-hot-middleware/client'],
+    app: ['./src/app.tsx'],
     vendor: ['react', 'react-dom']
   },
   output: {
@@ -17,10 +17,12 @@ module.exports = {
   devServer: {
     compress: true,
     port: 3000,
-    historyApiFallback: true
+    historyApiFallback: true,
+    hot: true
   },
   module: {
     rules: [
+      { test: /\.css$/, use: ['style-loader', 'css-loader'] },
       { test: /\.tsx?$/, loader: 'ts-loader' },
       { enforce: "pre", test: /\.js$/, loader: "source-map-loader" }
     ]

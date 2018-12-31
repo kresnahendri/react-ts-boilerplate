@@ -54,7 +54,6 @@
       true,
       "never"
     ],
-    "space-before-function-paren": true,
     "typedef-whitespace": [
       true,
       {
@@ -85,6 +84,7 @@
     "import-name": false,
     "jsx-wrap-multiline": false,
     "jsx-no-lambda": false,
-    "space-before-function-paren": false
+    "space-before-function-paren": false,
+    "eofline": true
   }
 }

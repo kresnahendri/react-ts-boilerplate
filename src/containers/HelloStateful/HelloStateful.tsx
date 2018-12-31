@@ -12,7 +12,10 @@ class HelloStateful extends React.Component<IHelloStatefulProps, {}> {
 
   public render() {
     return (
-      <div>Stateful: Hello from {this.props.compiler} and {this.props.framework}</div>
+      <div>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        <p>Stateful: Hello from {this.props.compiler} and {this.props.framework}</p>
+      </div>
     )
   }
 }

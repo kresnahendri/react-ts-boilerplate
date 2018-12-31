@@ -8,8 +8,7 @@ export interface IHelloStatelessProps {
 const HelloStateless = (props: IHelloStatelessProps) => {
   return (
     <div>
-      Stateless: Hello from {props.compiler} and {props.framework}
-      {props.framework ? <div>JOS</div> : <div>JAS</div>}
+      <p>Stateless: Hello from {props.compiler} and {props.framework}</p>
     </div>
 
   )
