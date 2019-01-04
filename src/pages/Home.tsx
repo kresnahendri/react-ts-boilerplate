@@ -13,7 +13,7 @@ class Home extends React.Component {
         <HelloStateless compiler="Typescript" framework="React" />
         <Counter />
         <Button color="babu">Button</Button>
-
+        <img src={require("../assets/placeholder-image.jpg")} alt="" />
         <h1>Heading 1</h1>
         <h2>Heading 2</h2>
         <h3>Heading 3</h3>

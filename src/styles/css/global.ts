@@ -9,6 +9,7 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     margin-bottom: .5em;
     white-space: pre-wrap;
+    line-height: 1.5;
   }
   h1 {
     font-size: 2.75em;
