@@ -17,3 +17,4 @@ Minimal React usring Typescript
 - Grid layout: `bootstrap-4-grid`
 - Animation: `css` and `rxjs` (WIP)
 - Bundler: `webpack@4`
+- Form & Validation: `formik` and `yup`
