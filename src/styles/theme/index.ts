@@ -1,7 +1,14 @@
-import color from "./color"
-import space from "./space"
+import buttonTheme, { IButtonTheme } from './buttonTheme'
+import color, { IColorTheme } from './colorTheme'
 
-export {
-  color,
-  space
+export interface ITheme {
+  color: IColorTheme
+  button: IButtonTheme
 }
+
+const theme: ITheme = {
+  color,
+  button: buttonTheme,
+}
+
+export default theme

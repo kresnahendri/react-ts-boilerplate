@@ -1,6 +1,6 @@
 # React Typescript Boilerplate
 
-Minimal Express REST API boilerplate using RxJS
+Minimal React usring Typescript
 
 ## Motivation
 

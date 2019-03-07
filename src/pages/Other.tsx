@@ -1,10 +1,19 @@
-import * as React from "react"
+import * as React from 'react'
 
-class Other extends React.Component {
+interface IProps {
+  pageName?: string
+}
+interface IState {
+  counter: number
+}
+class Other extends React.Component<IProps, IState> {
+  public state: IState = {
+    counter: 1,
+  }
   public render() {
     return (
       <div>
-        <h1>Other page</h1>
+        <h1>{this.props.pageName || 'Other page'}</h1>
       </div>
     )
   }

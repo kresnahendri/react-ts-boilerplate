@@ -1,9 +1,10 @@
-import { createGlobalStyle } from "styled-components"
+import { createGlobalStyle } from 'styled-components'
 
 const GlobalStyle = createGlobalStyle`
   html, body {
     margin: 0;
     padding: 0;
+    font-family: 'Raleway', sans-serif;
   }
   h1, h2, h3, h4, h5, p, small, code {
     margin: 0;
