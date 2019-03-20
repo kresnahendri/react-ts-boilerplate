@@ -3,22 +3,25 @@ const fs = require('fs')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
+const BUILD_DIR = path.resolve(__dirname, './dist')
+const APP_DIR = path.resolve(__dirname, './src')
+const PUBLIC_DIR = path.resolve(__dirname, './public')
+
 module.exports = {
   devtool: 'source-map',
   entry: {
     app: ['./src/app.tsx'],
-    vendor: ['react', 'react-dom']
   },
   output: {
-    path: __dirname + '/public',
-    filename: 'build/[name].bundle.js'
+    path: BUILD_DIR,
+    filename: '[name].bundle.js',
   },
   devtool: 'source-map',
   devServer: {
     compress: true,
     port: 3000,
     historyApiFallback: true,
-    hot: true
+    hot: true,
   },
   module: {
     rules: [
@@ -31,7 +34,7 @@ module.exports = {
           {
             loader: 'file-loader',
             options: {
-              name: './src/assets/[name]-[hash:8].[ext]'
+              name: './assets/[name]-[hash:8].[ext]',
             },
           },
         ]
@@ -40,16 +43,14 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: 'public/index.html',
-      inject: true,
-      sourceMap: true,
-      chunksSortMode: 'dependency'
+      template: path.join(PUBLIC_DIR, '/index.html'),
+      filename: './index.html',
     }),
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
   ],
   resolve: {
     alias: { '@': path.resolve('./src') },
-    modules: [path.resolve(__dirname, 'src'), 'node_modules'],
-    extensions: ['.ts', '.tsx', '.js', '.jsx']
+    modules: [APP_DIR, 'node_modules'],
+    extensions: ['.ts', '.tsx', '.js', '.jsx'],
   }
 }

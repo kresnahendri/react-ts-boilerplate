@@ -5,10 +5,12 @@ const Hooks = () => {
   const [password, setPassword] = React.useState('')
 
   React.useEffect(() => {
+    // tslint:disable-next-line:no-console
     console.log('Username changed')
   }, [username])
 
   React.useEffect(() => {
+    // tslint:disable-next-line:no-console
     console.log('Password changed')
   }, [password])
 
