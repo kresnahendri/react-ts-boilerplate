@@ -4,9 +4,10 @@
   "description": "React ❤ TS Boilerplate",
   "main": "index.js",
   "scripts": {
-    "build": "npm run lint && rm -rf dist && webpack --config webpack.config.js --progress --colors --optimize-minimize --mode production",
+    "build": "npm run lint && rm -rf dist && webpack --config webpack.config.js --progress --colors --optimize-minimize",
     "dev": "NODE_ENV=development webpack-dev-server --mode=development --config ./webpack.config.js --content-base ./public",
     "lint": "tslint -c tslint.json -p tsconfig.json -t verbose 'src/**/*.{ts,tsx}'",
+    "start": "npm run build && nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -19,7 +20,10 @@
   "dependencies": {
     "axios": "^0.18.0",
     "bootstrap-4-grid": "^2.4.1",
+    "express": "^4.16.4",
     "formik": "^1.5.1",
+    "node-graceful": "^1.0.1",
+    "nodemon": "^1.18.10",
     "normalize.css": "^8.0.1",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
