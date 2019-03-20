@@ -1,32 +1,29 @@
-import RegisterForm from 'containers/RegisterForm/RegisterForm'
 import * as React from 'react'
+import { connect } from 'react-redux'
 import { BrowserRouterProps, RouteComponentProps } from 'react-router-dom'
+import ReduxType from 'ReduxType'
 import { Button } from '../components'
-import articleService, { IArticle } from '../services/articleService'
+import RegisterForm from '../containers/RegisterForm/RegisterForm'
+import { IArticle } from '../interfaces/ICommon'
+import { clearArticles, fetchArticles } from '../store/actions/articleActions'
 
-interface IState {
+interface IProps extends RouteComponentProps, BrowserRouterProps {
   articles: IArticle[],
+  fetchArticles: () => any
+  clearArticles: () => any
 }
 
-interface IProps extends RouteComponentProps, BrowserRouterProps { }
-
-class Home extends React.Component<IProps, IState> {
-  constructor(props: any) {
+class Home extends React.Component<IProps> {
+  constructor(props: IProps) {
     super(props)
-    this.state = {
-      articles: [],
-    }
   }
 
   handleFetchArticles = () => {
-    articleService.get()
-      .subscribe(
-        (articles) => this.setState({ articles }),
-      )
+    this.props.fetchArticles()
   }
 
   handleClearArticles = () => {
-    this.setState({ articles: [] })
+    this.props.clearArticles()
   }
 
   render() {
@@ -37,10 +34,17 @@ class Home extends React.Component<IProps, IState> {
         <RegisterForm />
         <Button variant="primary" size="md" onClick={this.handleFetchArticles}>Fetch Article</Button>
         <Button variant="nude" size="md" onClick={this.handleClearArticles}>Clear</Button>
-        {this.state.articles.map((article, idx) => <div key={idx}>{article.title}</div>)}
+        {this.props.articles.map((article, idx) => <div key={idx}>{article.title}</div>)}
       </div>
     )
   }
 }
 
-export default Home
+const mapStateToProps = (state: ReduxType.State) => ({
+  articles: state.article.articles,
+})
+
+export default connect(mapStateToProps, {
+  fetchArticles,
+  clearArticles,
+})(Home)

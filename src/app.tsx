@@ -2,14 +2,15 @@ import 'bootstrap-4-grid/css/grid.css'
 import 'normalize.css'
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
+import { Provider } from 'react-redux'
 import { ThemeProvider } from 'styled-components'
-import { Provider } from 'unstated'
 import Routers from './routers'
+import store from './store'
 import GlobalStyle from './styles/css/global'
 import theme from './styles/theme'
 
 const App = () => (
-  <Provider>
+  <Provider store={store}>
     <GlobalStyle />
     <ThemeProvider theme={theme}>
       <Routers />

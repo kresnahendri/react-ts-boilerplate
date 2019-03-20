@@ -12,9 +12,33 @@ Minimal React usring Typescript
 - Routing: `react-router-dom`
 - Fetch API: `axios`
 - Async handler: `rxjs@6`
-- State management: `unstead`
+- State management: `redux-observable`
 - Styling: `styled-component`
 - Grid layout: `bootstrap-4-grid`
 - Animation: `css` and `rxjs` (WIP)
 - Bundler: `webpack@4`
 - Form & Validation: `formik` and `yup`
+
+## Project Structure
+
+```bash
+src
+├── app.tsx       # main file in this project.
+├── assets        # assets like images, icons, fonts, etc.
+├── components    # Components like Button, Input, etc.
+├── constants     # Constanst of app.
+├── containers    # Contaiers like RegisterForm, LoginModal, UserHeader, etc.
+├── interfaces    # Define interface of object like API, Service, Common Interface
+├── libs          # libs of this app.
+├── pages         # Pages based on definition of routes.
+├── routers       # Setup react-router-dom and kind of routes (public & private).
+├── services      # Services of App like apiService, userService, loginService, etc.
+└── styles        # Styling using styled-components: GlobalStyle & theme.
+└── types         # Declare custom types here
+└── store         # Redux definitions
+    └── actions   # Redux actions
+    └── epics     # Epics by redux-observable
+    └── reducers  # Redux reducers
+    └── types.ts  # All action types
+    └── index.ts  # Root of store
+```

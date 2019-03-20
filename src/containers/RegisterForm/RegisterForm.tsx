@@ -63,7 +63,7 @@ const RegisterForm = (props: FormikProps<IFormValues>) => {
 }
 
 export default withFormik<{}, IFormValues>({
-  mapPropsToValues: (props: any) => ({
+  mapPropsToValues: () => ({
     name: '',
     email: '',
     password: '',
