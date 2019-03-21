@@ -1,5 +1,6 @@
 import axios, { AxiosRequestConfig, AxiosResponse } from 'axios'
-import { defer, from, Observable } from 'rxjs'
+import { defer, from, Observable, of } from 'rxjs'
+import { catchError } from 'rxjs/operators'
 interface IArgs {
   url: string
   method: string
@@ -24,6 +25,8 @@ export const buildApiRequest = (args: IArgs): Observable<AxiosResponse<any>> => 
       config = { ...config, params: args.params }
     }
 
-    return from(axios(config))
+    return from(axios(config)).pipe(
+      catchError((error) => of(error)),
+    )
   })
 }

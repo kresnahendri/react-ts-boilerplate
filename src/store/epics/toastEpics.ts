@@ -1,15 +1,21 @@
 import { Epic } from 'redux-observable'
 import { debounceTime, map, mapTo } from 'rxjs/operators'
 import { hideToast, showToast } from '../actions/toastActions'
-import { CLEAR_ARTICLES, FETCH_ARTICLES_F, SHOW_TOAST } from '../actionTypes'
+import {
+  CLEAR_ARTICLES,
+  FETCH_ARTICLES_F,
+  FETCH_ARTICLES_R,
+  SHOW_TOAST,
+} from '../actionTypes'
 
-const triggerActions = [FETCH_ARTICLES_F, CLEAR_ARTICLES]
+const triggerActions = [FETCH_ARTICLES_F, FETCH_ARTICLES_R, CLEAR_ARTICLES]
 export const triggerToastEpic: Epic = (action$) =>
   action$.ofType(...triggerActions).pipe(
-    map(({ type }) => {
+    map(({ type, payload }) => {
       if (type === FETCH_ARTICLES_F) { return { text: 'Article fetched Article fetched Article fetched Article fetched', variant: 'success' } }
       if (type === CLEAR_ARTICLES) { return { text: 'Article cleared', variant: 'info' } }
-      return { text: 'There is something error', variant: 'error' }
+      if (type === FETCH_ARTICLES_R) { return { text: payload.message, variant: 'error' } }
+      return { text: 'There is something errors', variant: 'error' }
     }),
     debounceTime(100),
     map(({ text, variant }) => showToast(text, variant)),

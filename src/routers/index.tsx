@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
+import LoadingBar from 'react-redux-loading-bar'
 import { BrowserRouter as Router, Link, Route } from 'react-router-dom'
 import ReduxType from 'ReduxType'
 import { Toast } from '../containers'
@@ -22,6 +23,7 @@ const Routers = (props: IProps) => {
           <li><Link to="/other">Other</Link></li>
           <li><Link to="/hooks">Hooks</Link></li>
         </ul>
+        <LoadingBar style={{ backgroundColor: 'red', height: '2px', position: 'fixed', top: 0, left: 0, right: 0 }} />
         <Toast show={props.showToast} text={props.toastText} variant={props.toastVariant} />
         <Route exact={true} path="/" component={Home} />
         <Route exact={true} path="/other" component={Other} />

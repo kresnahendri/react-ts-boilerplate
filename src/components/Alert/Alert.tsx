@@ -15,7 +15,7 @@ const Alert = styled('div') <IProps>`
     if (props.variant === 'info') {
       return props.theme.color.blueberry01
     }
-    return props.theme.color.cloud01
+    return 'red'
   }};
 `
 

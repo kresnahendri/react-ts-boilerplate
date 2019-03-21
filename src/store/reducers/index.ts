@@ -1,3 +1,4 @@
+import { loadingBarReducer } from 'react-redux-loading-bar'
 import { combineReducers } from 'redux'
 import { IArticle } from '../../interfaces/ICommon'
 import articleReducers from './articleReducers'
@@ -6,6 +7,7 @@ import toastReducers from './toastReducers'
 const reducers = combineReducers({
   article: articleReducers,
   toast: toastReducers,
+  loadingBar: loadingBarReducer,
 })
 
 export default reducers
