@@ -12,7 +12,7 @@ const triggerActions = [FETCH_ARTICLES_F, FETCH_ARTICLES_R, CLEAR_ARTICLES]
 export const triggerToastEpic: Epic = (action$) =>
   action$.ofType(...triggerActions).pipe(
     map(({ type, payload }) => {
-      if (type === FETCH_ARTICLES_F) { return { text: 'Article fetched Article fetched Article fetched Article fetched', variant: 'success' } }
+      if (type === FETCH_ARTICLES_F) { return { text: 'Article fetched', variant: 'success' } }
       if (type === CLEAR_ARTICLES) { return { text: 'Article cleared', variant: 'info' } }
       if (type === FETCH_ARTICLES_R) { return { text: payload.message, variant: 'error' } }
       return { text: 'There is something errors', variant: 'error' }
