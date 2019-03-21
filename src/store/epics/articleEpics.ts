@@ -5,9 +5,10 @@ import articleService from '../../services/articleService'
 import { fetchArticlesF, fetchArticlesR } from '../actions/articleActions'
 import { FETCH_ARTICLES } from '../actionTypes'
 
-export const fetchArticleEpic: Epic = (action$) =>
+export const fetchArticlesEpic: Epic = (action$) =>
   action$.ofType(FETCH_ARTICLES).pipe(
-    switchMap(() => articleService.get()),
-    map((response) => fetchArticlesF(response)),
-    catchError((error: any) => of(fetchArticlesR(error))),
+    switchMap(() => articleService.get().pipe(
+      map((response) => fetchArticlesF(response)),
+      catchError((error: any) => of(fetchArticlesR(error))),
+    )),
   )

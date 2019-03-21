@@ -1,6 +1,10 @@
 import { combineEpics } from 'redux-observable'
-import { fetchArticleEpic } from './articleEpics'
+import { fetchArticlesEpic } from './articleEpics'
+import { hideToastEpic, showToastEpic, triggerToastEpic } from './toastEpics'
 
 export default combineEpics(
-  fetchArticleEpic,
+  fetchArticlesEpic,
+  hideToastEpic,
+  showToastEpic,
+  triggerToastEpic,
 )
